@@ -4,6 +4,7 @@ import { Who } from "./Components/Who";
 import { Works } from "./Components/Works";
 import { Contact } from "./Components/Contact";
 import "./App.css";
+import back from "../public/img/bg.jpeg";
 
 const Container = styled.div`
   height: 100vh;
@@ -11,6 +12,8 @@ const Container = styled.div`
   scroll-behavior: smooth;
   overflow-y: auto;
   scrollbar-width: none;
+  color: white;
+  background-image: url(${back});
   &::-webkit-scrollbar {
     display: none;
   }
