@@ -25,7 +25,7 @@ const Container = styled.div`
 const Left = styled.div`
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 `;
 
@@ -45,12 +45,8 @@ const ListItem = styled.li`
   position: relative;
   transition: color 0.5s ease-in-out;
 
-  
-
   &:hover {
-    
-      color: #6122cf;
-    
+    color: #6122cf;
   }
 `;
 
