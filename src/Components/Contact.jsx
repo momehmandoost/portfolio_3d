@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { styled } from "styled-components";
 import MapChart from "./Map";
+import emailjs from "@emailjs/browser";
 
 const Section = styled.div`
   height: 100vh;
@@ -65,16 +66,46 @@ const Right = styled.div`
 `;
 
 export const Contact = () => {
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+  const form = useRef();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_woqvd7p",
+        "template_836i1lv",
+        form.current,
+        "LnM7ktTXMdMysfN0n"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setSuccess(true);
+        },
+        (error) => {
+          console.log(error.text);
+          setError(true);
+        }
+      );
+  };
   return (
     <Section>
       <Container>
         <Left>
-          <Form>
+          <Form ref={form} onSubmit={handleSubmit}>
             <Title>Contact US</Title>
-            <Input placeholder="Name" />
-            <Input placeholder="Email" />
-            <TextArea placeholder="Write Your Message" rows={10} />
-            <Button>Send</Button>
+            <Input placeholder="Name" name="name" />
+            <Input placeholder="Email" name="email" />
+            <TextArea
+              placeholder="Write Your Message"
+              rows={10}
+              name="message"
+            />
+            <Button type="submit">Send</Button>
+            {success && "Your message sent:)"}
+            {error && "something went wrong;)"}
           </Form>
         </Left>
         <Right>
