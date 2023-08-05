@@ -69,15 +69,16 @@ export const Contact = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
   const form = useRef();
+  console.log(import.meta.env.VITE_REACT_APP_EMAIL_SERVICE_ID);
   const handleSubmit = (e) => {
     e.preventDefault();
 
     emailjs
       .sendForm(
-        "service_woqvd7p",
-        "template_836i1lv",
+        import.meta.env.VITE_REACT_APP_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_REACT_APP_EMAIL_TEMPLATE_ID,
         form.current,
-        "LnM7ktTXMdMysfN0n"
+        import.meta.env.VITE_REACT_APP_EMAIL_USER_ID
       )
       .then(
         (result) => {
