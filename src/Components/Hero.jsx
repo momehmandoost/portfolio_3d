@@ -25,9 +25,10 @@ const Left = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  gap: 5px;
 `;
 const Title = styled.h1`
+  font-size: 3rem;
   font-weight: 600;
 `;
 const WhatWeDo = styled.div`
@@ -38,13 +39,44 @@ const WhatWeDo = styled.div`
 const Line = styled.img`
   height: 5px;
 `;
-const Subtitle = styled.h2``;
-const Desc = styled.p``;
-const Button = styled.button``;
+const Subtitle = styled.h2`
+  color: #da4ea2;
+  font-weight: 400;
+`;
+const Desc = styled.p`
+  font-size: 18px;
+  color: lightgray;
+`;
+const Button = styled.button`
+  background-color: #da4ea2;
+  border: none;
+  color: white;
+  padding: 10px;
+  font-weight: 500;
+  width: 100px;
+  border-radius: 5px;
+`;
 const Right = styled.div`
   flex: 3;
+  position: relative;
 `;
-const Img = styled.img``;
+const Img = styled.img`
+  width: 550px;
+  height: 600px;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  animation: animate 2s infinite ease alternate;
+  @keyframes animate {
+    to {
+      transform: translateY(30px);
+    }
+  }
+`;
 
 export const Hero = () => {
   return (
