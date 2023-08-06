@@ -1,12 +1,8 @@
-import {
-  OrbitControls,
-  PerspectiveCamera,
-  RenderTexture,
-  Text,
-} from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React from "react";
 import styled from "styled-components";
+import Cube from "./Cube";
 
 const Container = styled.div`
   height: 100vh;
@@ -17,22 +13,11 @@ const Container = styled.div`
 const Test = () => {
   return (
     <Container>
-      <Canvas>
-        <OrbitControls enableZoom={false} autoRotate />
+      <Canvas camera={{ position: [2, 2, 2], fov: 25 }}>
+        <OrbitControls enableZoom={false} />
         <ambientLight intensity={1} />
         <directionalLight position={[1, 2, 3]} />
-        <mesh>
-          <boxGeometry args={[2, 2, 2]} />
-          <meshStandardMaterial>
-            <RenderTexture attach="map">
-              <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-              <color attach="background" args={["pink"]} />
-              <Text fontsize={3} color="#555">
-                hello
-              </Text>
-            </RenderTexture>
-          </meshStandardMaterial>
-        </mesh>
+        <Cube />
       </Canvas>
     </Container>
   );
