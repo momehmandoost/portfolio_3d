@@ -13,7 +13,7 @@ const Container = styled.div`
 const Test = () => {
   return (
     <Container>
-      <Canvas camera={{ position: [2, 2, 2], fov: 25 }}>
+      <Canvas camera={{ position: [2, 3, 3], fov: 25 }}>
         <OrbitControls enableZoom={false} />
         <ambientLight intensity={1} />
         <directionalLight position={[1, 2, 3]} />

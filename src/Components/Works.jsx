@@ -1,5 +1,8 @@
-import React from "react";
+import { OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import React, { Suspense } from "react";
 import { styled } from "styled-components";
+import { Apple } from "./Apple";
 
 const Data = [
   "Web Design",
@@ -67,7 +70,16 @@ export const Works = () => {
             ))}
           </List>
         </Left>
-        <Right></Right>
+        <Right>
+          <Canvas camera={{ position: [1, 1, 1], fov: 105 }}>
+            <Suspense fallback={null}>
+              <OrbitControls enableZoom={false} />
+              <ambientLight intensity={3} />
+              <directionalLight position={[1, 2, 3]} />
+              <Apple />
+            </Suspense>
+          </Canvas>
+        </Right>
       </Container>
     </Section>
   );
