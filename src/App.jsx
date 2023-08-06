@@ -5,6 +5,7 @@ import { Works } from "./Components/Works";
 import { Contact } from "./Components/Contact";
 import "./App.css";
 import back from "../public/img/bg.jpeg";
+import Test from "./Components/Test";
 
 const Container = styled.div`
   height: 100vh;
@@ -26,6 +27,7 @@ function App() {
       <Who />
       <Works />
       <Contact />
+      {/* <Test /> */}
     </Container>
   );
 }
